@@ -12,7 +12,6 @@ public class Team{
 	
 	protected Assistant[] assistants;
 	
-	protected int [][] dresser;
 	
 	public Team(String name){
 	
@@ -24,7 +23,8 @@ public class Team{
 	
 	assistants =new Assistant[3];
 	
-	coach = new MainCoach[1]; 
+	coach = new MainCoach[1];
+
 	
 	}
 	public String getName(){

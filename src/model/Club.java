@@ -12,6 +12,9 @@ public class Club{
 	
 	private ArrayList <Employee> employers;
 	
+	private int [][] dresser1;
+	
+	private int[][] dresser2;
 	
 	public Club(String name, String nit, String creationDate){
 		
@@ -24,6 +27,10 @@ public class Club{
 	team = new Team[2];
 	
 	employers = new ArrayList < Employee>();
+	
+	dresser1 = new int[7][6];
+	
+	dresser2 = new int[7][7];
 	
 	}
 	public String getName(){
@@ -198,8 +205,8 @@ public class Club{
 	}
 	public void addMainCoachToTeam(int coachPosition, int teamPosition){
 		
-		if(team[teamPosition].coach[1] == null){
-		team[teamPosition].coach[1] = (MainCoach) employers.get(coachPosition);
+		if(team[teamPosition].coach[0] == null){
+		team[teamPosition].coach[0] = (MainCoach) employers.get(coachPosition);
 		}
 		
 	}
