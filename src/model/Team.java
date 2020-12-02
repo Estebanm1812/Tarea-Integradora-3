@@ -45,6 +45,18 @@ public class Team{
 	public void setPlaterList(Player [] playerList){
 		this.playerList = playerList;
 	}
+	public MainCoach[] getMainCoach(){
+		return coach;
+	}
+	public void setMainCoach(MainCoach[] coach){
+		this.coach = coach;
+	}
+	public Assistant[] getAssistants(){
+		return assistants;
+	}
+	public void setAssistans(Assistant[] assistants){
+		this.assistants = assistants;
+	}
 	public int addPLayertoTeam(){
 	
 		int pos =0;
@@ -62,9 +74,48 @@ public class Team{
 	}
 	public String infoTeam(){
 		
+		
 		String text = "";
+
+		String coachName = "";
 		
 		
+		String assistansNames = "";
+		
+		String playersNames = "";
+		
+		if(coach[1].getState() == State.ACTIVE){
+			
+			coachName = coach[1].getName();
+		}
+		
+		for(int i=0; i < assistants.length ;i++){
+			
+			if(assistants[i] != null){  
+				if(assistants[i].getState() == State.INACTIVE){
+			
+					assistants[i] = null;
+				}else{
+				assistansNames+= assistants[i].getName() + ", ";
+				}
+			}
+		}
+		for(int i=0; i < playerList.length;i++){
+			
+			if(playerList[i] != null){
+			
+				if(playerList[i].getState() == State.INACTIVE){
+				
+					playerList[i] = null;
+				}else{
+				playersNames+= playerList[i].getName() + ", ";
+				}
+			}
+		}
+		text+= "TEAM\n" +
+				"Entrenador principal : " + coachName + 
+				"\n Entrenadores Asistentes: " + assistansNames +
+				"\n Jugadores: " + playersNames;
 		return text;
 	}
 	public int addAssistantToTeam(){
@@ -82,4 +133,5 @@ public class Team{
 		}
 		return pos;
 	}
+	
 }

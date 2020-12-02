@@ -12,9 +12,11 @@ public class Club{
 	
 	private ArrayList <Employee> employers;
 	
-	private int [][] dresser1;
+	private Player [][] dresser1;
 	
-	private int[][] dresser2;
+	private Player [][] dresser2;
+	
+	private Coach [][] office;
 	
 	public Club(String name, String nit, String creationDate){
 		
@@ -28,9 +30,11 @@ public class Club{
 	
 	employers = new ArrayList < Employee>();
 	
-	dresser1 = new int[7][6];
+	dresser1 = new Player[7][6];
 	
-	dresser2 = new int[7][7];
+	dresser2 = new Player[7][7];
+	
+	office = new Coach[6][6];
 	
 	}
 	public String getName(){
@@ -119,7 +123,7 @@ public class Club{
 		
 		for(int i=0; i < employers.size();i++){
 			
-			text+= employers.get(i).getInfo();
+			text+= employers.get(i).getInfo() + "\n";
 			
 		}
 		return text;
@@ -140,7 +144,7 @@ public class Club{
 		
 		for(int i=0; i < employers.size();i++){
 			
-			text+= "(" + i + ") " + employers.get(i).getName();
+			text+= "(" + i + ") " + employers.get(i).getName() + "\n";
 			
 		}
 		
@@ -186,8 +190,11 @@ public class Club{
 		
 		int freeSpace = 0;
 		
+		if(employers.get(playerPosition).getState() == State.ACTIVE){
+		
 		freeSpace = team[teamPosition].addPLayertoTeam();
 		team[teamPosition].playerList[freeSpace] = (Player)employers.get(playerPosition);
+		}
 	}
 	public String showListOfCoachs(){
 		
@@ -205,15 +212,340 @@ public class Club{
 	}
 	public void addMainCoachToTeam(int coachPosition, int teamPosition){
 		
+		if(employers.get(coachPosition).getState() == State.ACTIVE){
 		if(team[teamPosition].coach[0] == null){
 		team[teamPosition].coach[0] = (MainCoach) employers.get(coachPosition);
 		}
-		
+		}
 	}
 	public void addAssistantToTeam(int assistanPosistion, int teamPosition){
 		
 		int space = 0;
+		if(employers.get(assistanPosistion).getState() == State.ACTIVE){
 		space = team[teamPosition].addAssistantToTeam();
 		team[teamPosition].assistants[space] = (Assistant) employers.get(assistanPosistion);
+		}
+	}
+	public String addPlayertoDressRoom(int playerPosition, int dresser){
+		
+		Player tmp = (Player)employers.get(playerPosition);
+		
+		String text = ""; 
+		
+		boolean out = false;
+		
+		boolean out2 = false;
+		
+		int pos = 0;
+		
+		int pos2 = 0;
+		
+		switch(dresser){
+		case 1:
+		for(int i=0; i < dresser1.length && out==false; i+=2){
+			
+			
+			for(int j=0; j < dresser1[0].length && out2 == false;j+=2){
+			
+				if(dresser1[i][j] == null){
+			
+					out = true;
+					out2 = true;
+					
+					pos = i;
+					pos2 = j;
+				}
+			}
+		}
+		dresser1[pos][pos2] = tmp;
+		if(dresser1[pos][pos2] != null){
+			text = "El jugador " + employers.get(playerPosition).getName() + " entro al Vestidor";
+		}else{
+			text = "El jugador no entro correctamenta al vestuario";
+		}
+		break;
+		case 2:
+		for(int i=0; i < dresser2.length && out==false; i+=2){
+			
+			
+			for(int j=0; j < dresser2[0].length && out2 == false;j+=2){
+			
+				if(dresser2[i][j] == null){
+			
+					out = true;
+					out2 = true;
+					
+					pos = i;
+					pos2 = j;
+				}
+			}
+		}
+		dresser2[pos][pos2] = tmp;
+		if(dresser2[pos][pos2] != null){
+			text = "El jugador " + employers.get(playerPosition).getName() + " entro al Vestidor";
+		}else{
+			text = "El jugador no entro correctamenta al vestuario";
+		}
+		break;
+		}
+		return text;
+	}
+	public String removeFromDresser(int player, int dresser){
+		
+		Player tmp = (Player)employers.get(player);
+		
+		String text = ""; 
+		
+		boolean out = false;
+		
+		boolean out2 = false;
+		
+		int pos = 0;
+		
+		int pos2 = 0;
+		
+		switch(dresser){
+		case 1:
+		for(int i=0; i < dresser1.length && out==false; i+=2){
+			
+			
+			for(int j=0; j < dresser1[0].length && out2 == false;j+=2){
+			
+				if(dresser1[i][j].equals(employers.get(player))){
+			
+					out = true;
+					out2 = true;
+					
+					pos = i;
+					pos2 = j;
+				}
+			}
+		}
+		dresser1[pos][pos2] = null;
+		if(dresser1[pos][pos2] == null){
+			text = "El jugador " + employers.get(player).getName() + " Salio del Vestidor";
+		}else{
+			text = "El jugador no salio correctamenta al vestuario";
+		}
+		break;
+		case 2:
+		for(int i=0; i < dresser2.length && out==false; i+=2){
+			
+			
+			for(int j=0; j < dresser2[0].length && out2 == false;j+=2){
+			
+				if(dresser2[i][j].equals(employers.get(player))){
+			
+					out = true;
+					out2 = true;
+					
+					pos = i;
+					pos2 = j;
+				}
+			}
+		}
+		dresser2[pos][pos2] = null;
+		if(dresser2[pos][pos2] == null){
+			text = "El jugador " + employers.get(player).getName() + " Salio del vestidor";
+		}else{
+			text = "El jugador no salio correctamenta al vestuario";
+		}
+		break;
+		}
+		return text;
+	}
+	public String dresserInformation(){
+		
+		String text = "";
+		
+		text = "Vestidor 1 ";
+		
+		for(int i=0; i < dresser1.length;i++){
+		
+		
+			for(int j=0; i < dresser1[0].length;j++){
+		
+				if(dresser1[i][j] == null){
+			
+					text+= "0";
+				
+				}else{
+					
+					text+= dresser1[i][j].getName() + "\t";
+				}
+			}
+		}
+		text += "\n Vestidor 2";
+		for(int i=0; i < dresser2.length;i++){
+		
+		
+			for(int j=0; i < dresser2[0].length;j++){
+		
+				if(dresser2[i][j] == null){
+			
+					text+= "0 \t";
+				
+				}else{
+					
+					text+= dresser2[i][j].getName() + "\t";
+				}
+			}
+		}
+		return text;
+	}
+	public void addCoachToOffice(int coach){
+		
+		boolean out = false;
+		
+		boolean out2 = false;
+		
+		int pos = 0;
+		
+		int pos2 = 0;
+		
+		if(employers.get(coach).getState() != State.INACTIVE){
+
+		for(int i=0; i < office.length && out == false;i++){
+			
+			
+			for(int j=0; j < office[0].length && out2 == false;j++){
+			
+				if(office[i][j] == null){	
+			
+					out = true;
+					out2 = true;
+					pos = i;
+					pos2 = j;
+					
+				}
+			}
+		}
+		
+		if(employers.get(coach) instanceof MainCoach){
+		office[pos][pos2] = (MainCoach)employers.get(coach);
+		}else if(employers.get(coach) instanceof Assistant){
+		office[pos][pos2] = (Assistant)employers.get(coach);	
+		}
+		}
+	}
+	public String coachesList(){
+		
+		String text = "";
+		
+		for(int i=0; i <employers.size();i++){
+			
+			if(employers.get(i) instanceof MainCoach || employers.get(i) instanceof Assistant){
+				
+			
+				text+= "(" + i + ") " + employers.get(i).getName() + "\n";
+				
+			}
+		}
+		
+		return text;
+	}
+	public void removeFromOffice(int coach){
+		
+		boolean out = false;
+		
+		boolean out2 = false;
+		
+		int pos = 0;
+		
+		int pos2 = 0;
+		
+		if(employers.get(coach).getState() != State.INACTIVE){
+		
+			for(int i=0; i < office.length && out==false; i++)
+		
+				for(int j=0; j < office[0].length && out2 == false; j++){
+					
+					if(office[i][j].equals(employers.get(coach))){
+					
+					pos = i;
+					pos2 = j;
+					out = true;
+					out2 = true;
+					
+					}
+				}
+		
+		}
+		office[pos][pos2] = null;
+	}
+	public String teamsInfo(){
+		
+		String text = "";
+		
+		for(int i=0; i < team.length;i++){
+		
+			if(team[i] != null){
+			
+				text += team[i].infoTeam() + "\n";
+			}
+		}
+		return text;
+	}
+	public String dresserInfo(int choice){
+		
+		String text = "";
+		switch(choice){
+		
+		case 1:
+		for(int i=0; i < dresser1.length;i++){
+			
+			for(int j=0; i < dresser1[0].length;j++){
+			
+				if(dresser1[i][j] == null){
+				
+				text += "0 \t";
+				}else{
+				
+				text+= "1 \t";
+				}
+			}	
+		
+		}
+		break;
+		case 2:
+		for(int i=0; i < dresser2.length;i++){
+			
+			for(int j=0; i < dresser2[0].length;j++){
+			
+				if(dresser2[i][j] == null){
+				
+				text += "0 \t";
+				}else{
+				
+				text+= "1 \t";
+				}
+			}	
+		
+		}
+	}
+	return text;
+	}
+	public String officeInfo(){
+		
+		String text = "";
+		
+		for(int i=0; i < office.length;i++){
+			
+			for(int j=0; j < office[0].length;j++){
+			
+				if(office[i][j] == null){
+					
+					text += "0 \t";
+					
+				}else{
+					
+					text += "1 \t";
+				}
+			
+			}
+		}
+		
+		
+		return text;
 	}
 }

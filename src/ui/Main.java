@@ -50,8 +50,9 @@ public class Main{
 		System.out.println("Elija una opcion: \n" +
 						   "(0) Para terminar la app\n" +
 						   "(1) Para Abrir el Menu de Equipos\n" +
-						   "(2) Para Abrir el menu de Empleados\n"
-		
+						   "(2) Para Abrir el menu de Empleados\n" +
+						   "(3) Para Abrir el Menu de Vestidores\n" +
+						   "(4) Para Abrir el Menu De Oficinas\n"
 		
 
 
@@ -80,6 +81,19 @@ public class Main{
 			employeeExecuteOperation(option2);
 			}while(option2!=0);
 		break;
+		case 3:
+		int option5 = 0;
+		do{
+			option5 = dresserMenu();
+			dresserExecuteOperation(option5);
+			}while(option5!=0);
+		break;
+		case 4:
+		int option6 = 0;
+		do{
+			option6 = officeMenu();
+			officeExecuteOperation(option6);
+			}while(option6!=0);
 		}
 	}
 	public void addTeam(){
@@ -299,9 +313,10 @@ public class Main{
 		System.out.println("Seleccione una Opcion: \n" +
 						   "(0) Para Volver al menu principal\n" +
 						   "(1) Para Crear un Equipo\n" +
-						   "(2) Para añadir un Jugador a un equipo" +
-						   "(3) Para Añadir el Coach principal del Equipo" +
-						   "(4) Para Añadir un Entrenador Assistente"
+						   "(2) Para añadir un Jugador a un equipo\n" +
+						   "(3) Para Añadir el Coach principal del Equipo\n" +
+						   "(4) Para Añadir un Entrenador Assistente\n" +
+						   "(5) Para Ver la informacion de los Equipos"
 							);
 		option = sc.nextInt();
 		sc.nextLine();
@@ -318,6 +333,9 @@ public class Main{
 		case 3: addMainCoachToTeam();
 		break;
 		case 4: addAssistantCoachToTeam();
+		break;
+		case 5: System.out.println(club.teamsInfo());
+		break;
 		}
 	}
 	public void addPlayerToTeam(){
@@ -364,4 +382,137 @@ public class Main{
 		sc.nextLine();
 		club.addAssistantToTeam(position, teamPosition);
 	}
+	public void addPlayertoDresser(){
+		
+		int player = 0;
+		
+		int dresser = 0;
+		
+		String text = "";
+		
+		System.out.println(club.playersNames());
+		player =sc.nextInt();
+		sc.nextLine();
+		do{
+		System.out.println("En que Vestidor va entrar?");
+		dresser = sc.nextInt();
+		sc.nextLine();
+		}while(dresser!=2 && dresser!=1);
+		text = club.addPlayertoDressRoom(player, dresser);
+		System.out.println(text);
+	}
+	public int dresserMenu(){
+		
+		int option = 0;
+		
+		System.out.println("Elija una opcion:\n" +
+						   "(0) Para Volver al menu Principal\n" +
+						   "(1) Para agregar un jugador a un Vestidor\n" +
+						   "(2) Para Sacar un jugador de un Vestidor\n" +
+						   "(3) Para ver la informacion de los Vestidores\n" +
+						   "(4) Para ver la Informacion de uno De los Vestidores\n"
+							);
+							
+		option = sc.nextInt();
+		sc.nextLine();
+		return option;
+	}
+	public void dresserExecuteOperation(int operation){
+		
+		switch(operation){
+		
+		case 1: addPlayertoDresser();
+		break;		
+		case 2: removePlayerOfDresser();
+		break;
+		case 3: System.out.println(club.dresserInformation());
+		break;
+		case 4:showOneDresserInformation();
+		}
+	}
+	public void removePlayerOfDresser(){
+		
+		int player = 0;
+		
+		int dresser = 0;
+		
+		String text = "";
+		
+		System.out.println(club.playersNames());
+		player =sc.nextInt();
+		sc.nextLine();
+		do{
+		System.out.println("En que Vestidor va entrar?");
+		dresser = sc.nextInt();
+		sc.nextLine();
+		}while(dresser!=2 || dresser!=1);
+			
+		text = club.removeFromDresser(player, dresser);
+		System.out.println(text);
+			
+	}
+	public int officeMenu(){
+		
+		int option = 0;
+		
+		System.out.println("Elija una opcion: \n" +
+						   "(0) Para volver al menu principal\n" +
+						   "(1) Para Añadir un entrenador a las oficinas\n" +
+						   "(2) Para Sacar un entrenador de las Oficinas\n" +
+						   "(3) Para ver la Informacion de las oficinas\n" 
+						   
+		);
+		option = sc.nextInt();
+		sc.nextLine();
+		
+		return option;
+	}
+	public void officeExecuteOperation(int option){
+		
+		switch(option){
+		
+		case 1: addCoachToOffice();
+		break;
+		case 2: removeCoachFromOffice();
+		break;
+		case 3: System.out.println(club.officeInfo());
+		
+		
+		}
+	}
+	public void addCoachToOffice(){
+		
+		int coach = 0;
+		
+		System.out.println(club.coachesList());
+		coach = sc.nextInt();
+		sc.nextLine();
+		club.addCoachToOffice(coach);
+	}
+	public void removeCoachFromOffice(){
+		
+		int coach = 0;
+		
+		System.out.println(club.coachesList());
+		coach = sc.nextInt();
+		sc.nextLine();
+		club.removeFromOffice(coach);
+		
+		
+	}
+	public void showOneDresserInformation(){
+		
+		int choice = 0;
+		do{
+		System.out.println("De que vestidor quiere saber la informacion");
+		choice = sc.nextInt();
+		sc.nextLine();
+		}while(choice!=2 && choice!=1);
+		System.out.println(club.dresserInfo(choice));
+		
+		
+	}
 }
+		
+	
+	
