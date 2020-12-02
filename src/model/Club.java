@@ -358,37 +358,37 @@ public class Club{
 		
 		String text = "";
 		
-		text = "Vestidor 1 ";
+		text = "Vestidor 1 \n";
 		
 		for(int i=0; i < dresser1.length;i++){
-		
-		
-			for(int j=0; i < dresser1[0].length;j++){
-		
-				if(dresser1[i][j] == null){
 			
-					text+= "0";
-				
+			for(int j=0; j < dresser1[0].length;j++){
+			
+				if(dresser1[i][j] == null){
+					
+					text += "0 \t";
+					
 				}else{
 					
-					text+= dresser1[i][j].getName() + "\t";
+					text += "1 \t";
 				}
+			
 			}
 		}
-		text += "\n Vestidor 2";
+		text += "\n Vestidor 2 \n";
 		for(int i=0; i < dresser2.length;i++){
-		
-		
-			for(int j=0; i < dresser2[0].length;j++){
-		
-				if(dresser2[i][j] == null){
 			
-					text+= "0 \t";
-				
+			for(int j=0; j < dresser2[0].length;j++){
+			
+				if(dresser2[i][j] == null){
+					
+					text += "0 \t";
+					
 				}else{
 					
-					text+= dresser2[i][j].getName() + "\t";
+					text += "1 \t";
 				}
+			
 			}
 		}
 		return text;
@@ -488,46 +488,48 @@ public class Club{
 	}
 	public String dresserInfo(int choice){
 		
-		String text = "";
+		String text = "\n";
 		switch(choice){
 		
 		case 1:
 		for(int i=0; i < dresser1.length;i++){
 			
-			for(int j=0; i < dresser1[0].length;j++){
+			for(int j=0; j < dresser1[0].length;j++){
 			
 				if(dresser1[i][j] == null){
-				
-				text += "0 \t";
+					
+					text += "0 \t";
+					
 				}else{
-				
-				text+= "1 \t";
+					
+					text += "1 \t";
 				}
-			}	
-		
+			
+			}
 		}
 		break;
 		case 2:
 		for(int i=0; i < dresser2.length;i++){
 			
-			for(int j=0; i < dresser2[0].length;j++){
+			for(int j=0; j < dresser2[0].length;j++){
 			
 				if(dresser2[i][j] == null){
-				
-				text += "0 \t";
+					
+					text += "0 \t";
+					
 				}else{
-				
-				text+= "1 \t";
+					
+					text += "1 \t";
 				}
-			}	
-		
+			
+			}
 		}
 	}
 	return text;
 	}
 	public String officeInfo(){
 		
-		String text = "";
+		String text = "\n";
 		
 		for(int i=0; i < office.length;i++){
 			
