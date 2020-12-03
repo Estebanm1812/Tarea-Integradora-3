@@ -316,7 +316,9 @@ public class Main{
 						   "(2) Para añadir un Jugador a un equipo\n" +
 						   "(3) Para Añadir el Coach principal del Equipo\n" +
 						   "(4) Para Añadir un Entrenador Assistente\n" +
-						   "(5) Para Ver la informacion de los Equipos"
+						   "(5) Para Añadir una Formacion\n" +
+						   "(6) Para Ver las Formaciones para la prensa\n" +
+						   "(7) Para Ver la informacion de los Equipos"
 							);
 		option = sc.nextInt();
 		sc.nextLine();
@@ -334,12 +336,16 @@ public class Main{
 		break;
 		case 4: addAssistantCoachToTeam();
 		break;
-		case 5: System.out.println(club.teamsInfo());
+		case 5: addLineUp();
+		break;
+		case 6: showLineUps();
+		break;
+		case 7: System.out.println(club.teamsInfo());
 		break;
 		}
 	}
 	public void addPlayerToTeam(){
-		System.out.println("Entro al metodo");
+		
 		int position = 0;
 		
 		int teamPosition = 0;
@@ -511,6 +517,52 @@ public class Main{
 		System.out.println(club.dresserInfo(choice));
 		
 		
+	}
+	public void addLineUp(){
+		
+		String date = "";
+		
+		int team = 0;
+		
+		String chain = "";
+		
+		int calculate = 0;
+		
+		int [] tmpNumber;
+		
+		String [] tmpText;
+		
+		System.out.println("Ingrese la fecha de cuando se usara la formacion");
+		date = sc.nextLine();
+		System.out.println(club.teamListName());
+		team = sc.nextInt();
+		sc.nextLine();
+		do{
+		calculate = 0;
+		System.out.println("Ingrese la formacion en formato Numero - Numero\n Recuerde que la formacion debe ser de 10 jugadores" );
+		chain = sc.nextLine();
+		tmpText	= chain.split("-");
+		tmpNumber = new int[tmpText.length];
+		for(int i=0; i < tmpText.length;i++){
+			tmpNumber[i]= Integer.valueOf(tmpText[i]);
+		}
+		for(int i=0; i < tmpNumber.length;i++){
+			calculate+= tmpNumber[i];
+		}
+		}while(calculate!=10);
+		club.createNewLineUp(chain, date, team);
+	}
+	public void showLineUps(){
+		
+		int team = 0;
+		
+		String text = "";
+		
+		System.out.println(club.teamListName());
+		team = sc.nextInt();
+		sc.nextLine();
+		text = club.showLineUpsForPress(team);
+		System.out.println(text);
 	}
 }
 		

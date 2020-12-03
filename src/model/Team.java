@@ -84,6 +84,8 @@ public class Team{
 		
 		String playersNames = "";
 		
+		String formations = "";
+		
 		if(coach[0].getState() == State.ACTIVE && coach[0] != null){
 			
 			coachName = coach[0].getName();
@@ -132,6 +134,23 @@ public class Team{
 			}
 		}
 		return pos;
+	}
+	public void addLineUp(String date, String chain ){
+		
+		LineUp tmp = new LineUp(date,chain);
+		lineUps.add(tmp);
+		
+	}
+	public String lineUpsForPress(){
+		
+		String text = "\n";
+		
+		for(int i=0; i < lineUps.size();i++){
+		
+			text+= lineUps.get(i).showMatrix();
+		
+		}
+		return text;
 	}
 	
 }

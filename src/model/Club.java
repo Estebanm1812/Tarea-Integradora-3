@@ -551,4 +551,16 @@ public class Club{
 		
 		return text;
 	}
+	public void createNewLineUp(String chain,String date, int teamPosition){
+		
+		team[teamPosition].addLineUp(date, chain);
+		
+	}
+	public String showLineUpsForPress(int teamPosition){
+		
+		String text = "\n";
+		
+		text += team[teamPosition].lineUpsForPress();
+		return text;
+	}
 }
