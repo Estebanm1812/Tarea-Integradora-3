@@ -88,8 +88,9 @@ public class Club{
 
 		for(int i =0; i < team.length;i++){
 			
+			if(team[i]!=null){
 			text+= "(" + i + ")" + team[i].getName();
-			
+			}
 		}
 		return text;
 	}
@@ -502,7 +503,7 @@ public class Club{
 					
 				}else{
 					
-					text += "1 \t";
+					text += dresser1[i][j].getName() + " \t";
 				}
 			
 			}
@@ -519,7 +520,7 @@ public class Club{
 					
 				}else{
 					
-					text += "1 \t";
+					text += dresser2[i][j].getName() +"\t";
 				}
 			
 			}
@@ -541,7 +542,7 @@ public class Club{
 					
 				}else{
 					
-					text += "1 \t";
+					text += office[i][j].getName() +" \t";
 				}
 			
 			}

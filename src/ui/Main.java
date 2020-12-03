@@ -339,7 +339,7 @@ public class Main{
 		}
 	}
 	public void addPlayerToTeam(){
-		
+		System.out.println("Entro al metodo");
 		int position = 0;
 		
 		int teamPosition = 0;

@@ -84,9 +84,9 @@ public class Team{
 		
 		String playersNames = "";
 		
-		if(coach[1].getState() == State.ACTIVE){
+		if(coach[0].getState() == State.ACTIVE && coach[0] != null){
 			
-			coachName = coach[1].getName();
+			coachName = coach[0].getName();
 		}
 		
 		for(int i=0; i < assistants.length ;i++){
