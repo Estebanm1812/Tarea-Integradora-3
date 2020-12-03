@@ -89,7 +89,7 @@ public class Club{
 		for(int i =0; i < team.length;i++){
 			
 			if(team[i]!=null){
-			text+= "(" + i + ")" + team[i].getName();
+			text+= "(" + i + ") " + team[i].getName();
 			}
 		}
 		return text;

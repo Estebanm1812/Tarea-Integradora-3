@@ -114,10 +114,16 @@ public class Team{
 				}
 			}
 		}
+		for(int i=0; i < lineUps.size();i++){
+				if(lineUps.get(i) != null){
+			formations+= lineUps.get(i).getChain() + ", ";
+				}
+		}
 		text+= "TEAM\n" +
 				"Entrenador principal : " + coachName + 
 				"\n Entrenadores Asistentes: " + assistansNames +
-				"\n Jugadores: " + playersNames;
+				"\n Jugadores: " + playersNames +
+				"\n Formaciones usadas: "+ formations;
 		return text;
 	}
 	public int addAssistantToTeam(){

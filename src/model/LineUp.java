@@ -6,11 +6,14 @@ public class LineUp{
 	
 	private String date;
 	
+	private String chain;
+	
 	private int [][] lineUp;
 	
 	
 	public LineUp(String date, String chain){
 	
+		this.chain = chain;
 		
 		this.date = date;
 		
@@ -22,6 +25,12 @@ public class LineUp{
 	}
 	public void setDate(String date){
 		this.date = date;
+	}
+	public String getChain(){
+		return chain;
+	}
+	public void setChain(String chain){
+		this.chain = chain;
 	}
 	public int[][] getLineUp(){
 		return lineUp;
