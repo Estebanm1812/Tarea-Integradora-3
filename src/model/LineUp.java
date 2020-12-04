@@ -41,11 +41,14 @@ public class LineUp{
 	public int[][] stringToMatrix(String chain){
 		
 		
-		int quantity =0;
+		double quantity =0;
 		
-		int divide = 0;
+		double divide = 0;
 		
-		int anotherDivide = 0;
+		
+		double anotherDivide = 0;
+		
+		boolean out = false;
 		
 		String text = chain;
 		
@@ -59,38 +62,49 @@ public class LineUp{
 				
 				tmpNumber[i]= Integer.valueOf(tmpText[i]);
 				quantity+=1;
-		}
-	
-		divide = (int)(10/quantity);	
-		
-		for(int i=matrix.length-1; i>=0 ; i-=divide){
-			
-			
-			
-			for(int k=0; k < tmpNumber.length;k++){
-				anotherDivide = (int)(7/tmpNumber[k]);
-			
-				for(int j=0; j<matrix[0].length; j+=anotherDivide){  
-						
-						matrix[i][j] = 1;
-					
-				}
-			}
 				
 		}
-				return matrix;
-			}
-		
-		
-		
-		
 	
+		divide = (10/quantity);	
+		
+		divide = Math.ceil(divide);
+
+		int k=0;
+		for(int i=matrix.length-1; i>=0 ; i-=divide){
+				
+				quantity = 0;
+				out = false;
+				System.out.println(quantity);
+					
+					System.out.println(k);
+				for(int j=matrix[0].length-1; j>=0 && out==false; j--){  
+						
+						
+						
+						quantity+=1;
+						if(quantity<=tmpNumber[k]){
+							System.out.println("Entro al IF");
+							matrix[i][j] = 1;
+						}else{
+							out = true;
+						}
+						
+				}
+				k+=1;
+		}
+			
+				
+		
+		return matrix;
+	}
 	public String showMatrix(){
 		
 		String text = "\n";
 		
 		for(int i=0; i < lineUp.length;i++){
 			
+				text+= "\n"; 
+				
 			for(int j=0; j < lineUp[0].length;j++){
 			
 				text+= lineUp[i][j] + "\t";
