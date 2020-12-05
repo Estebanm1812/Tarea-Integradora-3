@@ -18,6 +18,13 @@ public class Club{
 	
 	private Coach [][] office;
 	
+	/**
+	*method constructor to create a new Club
+	*pos: Club is created
+	*@param name, a String with the name of the club
+	*@param nit, a String with the identificator of the club
+	*@param creationDate, a String of when the club was founded
+	*/
 	public Club(String name, String nit, String creationDate){
 		
 	this.name = name;
@@ -685,9 +692,10 @@ public class Club{
 		
 		for(int i=0; i < office.length;i++){
 			
+				text+= "\n";
+				
 			for(int j=0; j < office[0].length;j++){
 			
-				text+= "\n";
 				
 				if(office[i][j] == null){
 					

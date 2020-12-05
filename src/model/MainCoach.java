@@ -5,7 +5,16 @@ public class MainCoach extends Coach implements Price{
 	private int teamsManaged;
 	
 	private int wonChampionships;
-
+	/**
+	*method that creates a coach
+	*@param name, a String with the name of the coach
+	*@param salary, a double with the salary of the coach
+	*@param identificator, a String with the id number of the coach
+	*@param state, a String with the state of the coach
+	*@param experienceYears, a int with the amount of experienceYears that the coach has
+	*@param teamsManaged, a int with the amount teams that the coach handles
+	*@param wonChampionships, a int with the amout of wonChampionships
+	*/
 	public MainCoach(String name, String identificator, double salary, String state, int experienceYears, int teamsManaged, int wonChampionships){
 	
 		super(name,identificator,salary, state ,experienceYears);
@@ -25,6 +34,11 @@ public class MainCoach extends Coach implements Price{
 	public void setWonChampionships(int wonChampionships){
 		this.wonChampionships = wonChampionships;
 	}
+	/**
+	*method that overrides the important information of the Employer
+	*pre: MainCoach exist
+	*@return text, a String with the important information of the MainCoach
+	*/
 	@Override
 	public String getInfo(){
 		
@@ -43,6 +57,11 @@ public class MainCoach extends Coach implements Price{
 			   
 		return text;
 	}
+	/**
+	*method that calculates the price of the MainCoach in the market
+	*pre: MainCoach exists
+	*@return price, a double with the price of the MainCoach in the market
+	*/
 	public double calculatePrice(){
 		
 		double price = 0;
@@ -51,6 +70,11 @@ public class MainCoach extends Coach implements Price{
 		price = (getSalary()*10) + (getExperienceYears()*100) + (getWonChampionships()*50); 
 		return price;
 	}
+	/**
+	*method that calculate the level of the MainCoach
+	*pre: MainCoach exists
+	*@return lvl, a double with the level of the MainCoach
+	*/
 	public double calculateLevel(){
 		
 		double lvl = 0;

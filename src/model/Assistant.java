@@ -3,7 +3,17 @@ public class Assistant extends Coach{
 
 	private boolean wasProfesional;
 	private Expertise expertise;
-	
+	/**
+	*method constructor that creates a new Assistnat
+	*pos: a new Assistant is created
+	*@param name, a String with the name of the assistant
+	*@param identificator, a String with the id of the assistant
+	*@param salary, a double with the salary of the assistant
+	*@param state, a String with the State of the assistant
+	*@param experienceYears, a int with the experienceYears of the assistant
+	*@param wasProfesional, a boolean that has if the assistant was or not professional
+	*@param expertise, a String with the expertise of the assistant
+	*/
 	public Assistant(String name, String identificator, double salary, String state, int experienceYears, boolean wasProfesional, String expertise){
 		
 				super(name,identificator,salary,state, experienceYears);
@@ -25,6 +35,11 @@ public class Assistant extends Coach{
 		this.expertise = expertise;
 	}
 	@Override
+	/**
+	*method that overrides the important information of the Employer
+	*pre: Assistant exist
+	*@return text, a String with the important information of the Assistant
+	*/
 	public String getInfo(){
 		
 		String text = "";

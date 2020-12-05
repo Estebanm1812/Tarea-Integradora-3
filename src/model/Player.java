@@ -8,7 +8,17 @@ public class Player extends Employee implements Price{
 	private double average;
 	
 	private Position position;
-	
+	/**
+	*method that creates a Player
+	*@param name, a String with the name of the plaer
+	*@param salary, a double with the salary of the player
+	*@param identificator, a String with the id number of the player
+	*@param state, a String with the state of the player
+	*@param shirtNumber, a int with the shirtNumber of the player
+	*@param gols, a int with the amount of gols done by the player
+	*@param position, a String with the postion of the player in the field
+	*@param average, a double with the average that the player has
+	*/
 	public Player(String name, String identificator, double salary, String state, int shirtNumber, int gols, String position, double average){
 	
 		super(name, identificator, salary, state);
@@ -44,6 +54,11 @@ public class Player extends Employee implements Price{
 	public void setPosition(Position position){
 		this.position = position;
 	}
+	/**
+	*method that overrides the information of Employee to add the particular information of Player
+	*pre: the player exist
+	*@return text, a String with the important information of the player
+	*/
 	@Override
 	public String getInfo(){
 		
@@ -63,6 +78,11 @@ public class Player extends Employee implements Price{
 			   
 		return text;
 	}
+	/**
+	*method that calculates the price of the player in the market
+	*pre: Player exist
+	*@return price, a double with the price of the player in the market
+	*/
 	public double calculatePrice(){
 		
 		double price = 0;
@@ -91,6 +111,11 @@ public class Player extends Employee implements Price{
 		}
 		return price;
 	}
+	/**
+	*method that calculate the level of the player
+	*pre: Player exist
+	*@return lvl, a double with the level of the player
+	*/
 	public double calculateLevel(){
 		
 		double lvl = 0;

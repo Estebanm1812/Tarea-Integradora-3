@@ -9,8 +9,12 @@ public class LineUp{
 	private String chain;
 	
 	private int [][] lineUp;
-	
-	
+	/**
+	*method that creates a new lineUp
+	*pos: lineUp is created
+	*@param date, the date of when the lineUp will be used
+	*@param chain, the chain that will be used to create the lineUp
+	*/
 	public LineUp(String date, String chain){
 	
 		this.chain = chain;
@@ -38,6 +42,13 @@ public class LineUp{
 	public void setLineU(int [][] lineUp){
 		this.lineUp = lineUp;
 	}
+	/**
+	*method that converts a String to a matrix of two dimensions
+	*pre: LineUp exist
+	*pos: the lineUp changes from null to a the matrix obtained in the method
+	*@param chain, a String with the formation in format Number - Number
+	*@return matrix, a matrix int of two dimesions with the formation in the String chain
+	*/
 	public int[][] stringToMatrix(String chain){
 		
 		
@@ -98,6 +109,11 @@ public class LineUp{
 		
 		return matrix;
 	}
+	/**
+	*method that saves the matrix in a Way too show it to the press
+	*pre: the method stringToMatrix() works and LineUp is initialized
+	*@return text, a String with the lineUp for the press
+	*/
 	public String showMatrix(){
 		
 		String text = "\n";
@@ -114,8 +130,4 @@ public class LineUp{
 		}
 		return text;
 	}
-	/*
-	
-	
-	*/
 }

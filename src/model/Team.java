@@ -12,7 +12,11 @@ public class Team{
 	
 	protected Assistant[] assistants;
 	
-	
+	/**
+	*method that creates a new team
+	*pos: team is created
+	*@param name, a String with the name of the team
+	*/
 	public Team(String name){
 	
 	this.name = name;
@@ -57,6 +61,11 @@ public class Team{
 	public void setAssistans(Assistant[] assistants){
 		this.assistants = assistants;
 	}
+	/**
+	*method that find the first empty space in the playerList
+	*pre: team is inizialized
+	*@return pos, a int with the first free space found in playerList
+	*/
 	public int addPLayertoTeam(){
 	
 		int pos =0;
@@ -72,6 +81,11 @@ public class Team{
 		}
 		return pos;
 	}
+	/**
+	*method that saves the important information of the team
+	*pre: Team is inizialized
+	*@return text, a String with the important information of the team
+	*/
 	public String infoTeam(){
 		
 		
@@ -126,6 +140,11 @@ public class Team{
 				"\n Formaciones usadas: "+ formations;
 		return text;
 	}
+	/**
+	*method that find the first empty space in the assistants array
+	*pre: Team is inizialized
+	*@return pos, a int with the first free space in assistants
+	*/
 	public int addAssistantToTeam(){
 		
 		int pos = 0;
@@ -141,12 +160,24 @@ public class Team{
 		}
 		return pos;
 	}
+	/**
+	*method that adds a new lineup to the lineUps arraylist
+	*pre: Team is inizialized
+	*pos: lineUps increases its size and has a new lineup in the last position
+	*@param date, a String with the date from when the lineUps was used
+	*@param chain, a String with the formation that will be used
+	*/
 	public void addLineUp(String date, String chain ){
 		
 		LineUp tmp = new LineUp(date,chain);
 		lineUps.add(tmp);
 		
 	}
+	/**
+	*method that saves the lineUps of the team
+	*pre: Team is inizialized
+	*@return text, a String with the lineUps in the way to show to the press
+	*/
 	public String lineUpsForPress(){
 		
 		String text = "\n";

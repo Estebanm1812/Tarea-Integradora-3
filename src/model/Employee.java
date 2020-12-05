@@ -9,6 +9,13 @@ public abstract class Employee{
 	
 	private State state;
 	
+	/**
+	*method that creates a new Employee
+	*@param name, a String with the name of the employee
+	*@param salary, a double with the salary of the  employee
+	*@param identificator, a String with the id number of the employee
+	*@param state, a String with the state of the employee
+	*/
 	public Employee(String name, String identificator, double salary, String state){
 		
 		this.name = name;
@@ -44,7 +51,11 @@ public abstract class Employee{
 	public void setState(State state){
 		this.state = state;
 	}
-	
+	/**
+	*method that saves the information of the employer that will be override in the subclases
+	*pre: Employee exist
+	*@return text, a String with the information of the employer
+	*/
 	public String getInfo(){
 		
 		String text = "";
