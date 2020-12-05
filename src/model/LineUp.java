@@ -86,16 +86,16 @@ public class LineUp{
 				
 				quantity = 0;
 				out = false;
-				System.out.println(quantity);
+				
 					
-					System.out.println(k);
+				
 				for(int j=matrix[0].length-1; j>=0 && out==false; j--){  
 						
 						
 						
 						quantity+=1;
 						if(quantity<=tmpNumber[k]){
-							System.out.println("Entro al IF");
+							
 							matrix[i][j] = 1;
 						}else{
 							out = true;
