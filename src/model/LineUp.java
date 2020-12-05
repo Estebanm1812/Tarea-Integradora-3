@@ -45,6 +45,7 @@ public class LineUp{
 		
 		double divide = 0;
 		
+		int k=0;
 		
 		double anotherDivide = 0;
 		
@@ -69,7 +70,7 @@ public class LineUp{
 		
 		divide = Math.ceil(divide);
 
-		int k=0;
+		
 		for(int i=matrix.length-1; i>=0 ; i-=divide){
 				
 				quantity = 0;
