@@ -102,7 +102,7 @@ public class LineUp{
 						}
 						
 				}
-				k+=1;
+				k+=1; 
 		}
 			
 				
