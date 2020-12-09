@@ -486,6 +486,8 @@ public class Club{
 		
 		for(int i=0; i < dresser1.length;i++){
 			
+			text+= " \n";
+			
 			for(int j=0; j < dresser1[0].length;j++){
 			
 				if(dresser1[i][j] == null){
@@ -501,7 +503,7 @@ public class Club{
 		}
 		text += "\n Vestidor 2 \n";
 		for(int i=0; i < dresser2.length;i++){
-			
+			text+= "\n";
 			for(int j=0; j < dresser2[0].length;j++){
 			
 				if(dresser2[i][j] == null){
