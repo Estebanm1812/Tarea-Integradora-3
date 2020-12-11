@@ -87,9 +87,9 @@ public class LineUp{
 				quantity = 0;
 				out = false;
 				
-					
+				anotherDivide = (7/tmpNumber[k]);	
 				
-				for(int j=matrix[0].length-1; j>=0 && out==false; j--){  
+				for(int j=matrix[0].length-1; j>=0 && out==false; j-=anotherDivide){  
 						
 						
 						
