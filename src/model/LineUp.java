@@ -80,16 +80,16 @@ public class LineUp{
 		divide = (10/quantity);	
 		
 		divide = Math.ceil(divide);
-
 		
+	
 		for(int i=matrix.length-1; i>=0 ; i-=divide){
 				
 				quantity = 0;
 				out = false;
 				
-				anotherDivide = (7/tmpNumber[k]);	
+					
 				
-				for(int j=matrix[0].length-1; j>=0 && out==false; j-=anotherDivide){  
+				for(int j=matrix[0].length-1; j>=0 && out==false; j--){  
 						
 						
 						
